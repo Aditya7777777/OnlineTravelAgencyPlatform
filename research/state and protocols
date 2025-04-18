@@ -1,0 +1,26 @@
+   what is a session?
+->  whenever an client interact with the server is called as session
+    example:
+    Consider an online banking application.
+    1.You log in with your credentials (1st interaction)
+    2.You check your account balance.(2nd interaction)
+    3.You transfer funds to another bank account.(3rd interaction)
+    4.you logged out.(4th interaction)
+    All these interactions together contitue a single sessionwith the banking server.
+    The server recognizes you as the same user across these interactions,thanks to session management mechanisim.
+
+what is an state?
+  
+1. stateful Protocol
+ stateful protocol require server to save the status and session information.
+ eg:ftp(file transfer protocol)
+
+2. Stateless protocol
+  Stateless protocol does'nt require the server to retain the server information or status
+  
+  analogy for stateful and stateless protocol;
+
+  suppose there a person gives cash to another person now the person has cash with him but with
+  due course of time he forgots who was the person from whome he recieved the cash that is anology for stateless protocol .
+
+  Now, suppose a person transfer some amount to another by using upi transaction.whenever an transaction happens between the data of the person who had sent the money and who has recieved the money is stored. This is the anology for stateful protocol

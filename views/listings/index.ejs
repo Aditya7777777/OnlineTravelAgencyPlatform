@@ -1,0 +1,47 @@
+<%- layout("/layouts/boilerplate") %> 
+<body>
+    <h1>All Listings</h1>
+
+    <!-- Create New Listing Button (Commented Out) -->
+    <!-- 
+    <form method="GET" action="/listings/new">
+        <button>Create New Listing</button>
+    </form> 
+    -->
+
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+        <!-- Display all listings in a responsive grid -->
+        <% for (let listing of allListings) { %>
+            <a href="/listings/<%= listing._id %>" class="listing-link">
+                <div class="card col listing-card">
+                    <img src="<%= listing.image.url || 'https://plus.unsplash.com/premium_photo-1664121799972-98e5aa03d31b?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' %>" 
+                         class="card-img-top" 
+                         style="height: 20rem" 
+                         alt="listing_image">
+                    
+                    <!-- Card overlay for additional content -->
+                    <div class="card-img-overlay"></div>
+
+                    <div class="card-body">
+                        <p class="card-text">
+                            <b><%= listing.title %></b><br>
+                            <%= listing.price.toLocaleString("en-IN") %> / night
+                        </p>
+                    </div>
+                </div>
+            </a>
+        <% } %>
+    </div>
+</body>
+
+<!-- Explanation of HTML Structure Adjustments by the Browser -->
+<!-- 
+    In some cases, browsers may automatically correct or adjust HTML structures. 
+    If an element (like <ul>) is placed outside <body>, the browser may move it inside <body> 
+    when rendering the page. This happens due to:
+
+    1. **HTML Correction by the Browser**: Browsers ensure valid HTML structure.
+    2. **Final DOM Output**: The actual DOM structure may differ from the written HTML.
+
+    So, if you see unexpected changes in the HTML when inspecting, it's likely due to these adjustments.
+-->

@@ -1,0 +1,150 @@
+.body{
+        font-family: "Plus Jakarta Sans", serif !important;
+        /* below styling was done so that footer will remain fixed below if this problem arises then do the following styling */
+        display: flex !important;
+        flex-direction: column !important;
+        
+
+}
+
+.container{
+    min-height: 100vh;
+
+}
+
+.footer{
+    bottom:0 !important;
+    width : 100%;
+}
+
+/* Navbar */
+
+/* the below class is of an nav tag present in navbar.ejs*/
+.navbar{
+   height:5rem;
+   background-color:white;
+}
+
+.navbar-collapse{
+    background-color: white !important;
+}
+/* giving color to icon */
+.fa-compass{
+    color:#fe424d;
+    font-size: 2rem;
+}
+
+.nav-link{
+    color:#222222 !important /*important to overpower bootstarp styling */
+}
+
+/* footer styling present in 49 project phase 1 part b  */
+
+.f-info-links a{
+    text-decoration: none;
+    color: #222222;
+}
+
+.f-info-links a:hover{
+    text-decoration: underline;   
+}
+
+
+
+.f-info-socials,.f-info-links,.f-info-brand{
+    width:100%;
+    margin-top: 2rem;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.f-info-socials{
+    margin-bottom: 1rem;
+}
+
+.f-info-links{
+    margin-bottom: 0.5rem;
+}
+
+/* styling icons */
+.f-info-socials i{
+    font-size: 1.2rem;
+    margin-right:1rem;
+}
+
+.f-info{
+    text-align:center;
+    height:15 rem;
+    background-color: #ebebeb;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items:space-evenly;
+}
+
+
+/* cards */
+.listing-card{
+    border:none !important;
+    margin-bottom:2rem;
+}
+
+.card-img-top{
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+
+.card-body{
+    padding:0 !important;
+}
+
+.card-text{
+    font-weight: 400 !important;
+}
+
+.listing-link{
+    text-decoration: none;
+}
+
+/* Card Effect */
+.card-img-overlay{
+    opacity: 0;
+}
+
+.card-img-overlay:hover{
+    opacity: 0.2;
+    background-color: white;
+}
+
+/* New page */
+
+.add-btn{
+    background-color: #fe424d !important;
+    border: none !important;
+}
+
+/* Edit Page */
+
+.edit-btn{
+    background-color: #fe424d !important;
+    border: none !important;
+}
+
+/* Show Page */
+.show-img{
+    height: 30vh;
+}
+
+
+.btns{
+    display: flex;
+}
+.show-card{
+    padding-left:0;
+    padding-right:0;
+}
+.btns a{
+    height: 2.49rem;
+}

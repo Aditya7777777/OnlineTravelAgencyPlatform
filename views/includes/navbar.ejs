@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/"><i class="fa-regular fa-compass"></i></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link "  href="/">Home</a>
+          <a class="nav-link" href="/listings">All Listings</a>
+          <a class="nav-link" href="/listings/new">Add new Listing</a>
+        </div>
+        
+        <div class="navbar-nav ms-auto"> <!--ms auto is used to shift all the anchor tags to right -->
+          <% if(!currUser) {%>
+          <a class="nav-link "  href="/signup">Sign Up</a>
+          <a class="nav-link" href="/login">Log in</a>
+          <% }else if(currUser) { %>
+            <a class="nav-link" href="/logout">Log Out</a>
+          <% } %> 
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  
+        
+          <!--with the help of req.user we can check if we are logged in or not logged in 
+ if before authentication we are not logged in we then req.user will be undefined 
+ and if the user is logged in then req.user will contain user details we are checking this 
+ because this is will help us to style the page, generally when we are logged in into the website 
+ then the UI does'nt show the option of signup and login and reverse is when we ae logged out 
+ so to built this functionality to our interface we are using req.user to check whether the user is
+ logged in or logged out -->

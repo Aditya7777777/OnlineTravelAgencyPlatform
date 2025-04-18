@@ -1,0 +1,75 @@
+// About express.js  file 
+// how the files which are present in the library folder work with each other 
+/********* how all the files present in the express.js file work together********/
+// How All These Files Work Together
+// App (Express Instance): The app object created using const app = express(); is the instance of the Application class from application.js.
+
+// Routing & Middleware:
+
+// When you use app.get(), app.post(), etc., it calls functions from router.js to manage routes.
+// Middleware functions are also handled by methods in application.js, which interact with request.js and response.js.
+// Request Handling:
+
+// The Request object (req) is extended by Express, and methods like .body, .params, .query, etc., are used to interact with HTTP request data.
+// Response Handling:
+
+// The Response object (res) is used to send data back to the client (e.g., res.send(), res.render(), res.json()).
+// View Rendering:
+
+// If you use app.set('view engine', 'ejs'), it tells Express to use view.js and the corresponding template engine (like EJS, Pug, etc.) to render HTML views.
+
+/******* summarization of teh express.js file ************/
+// Overall summarization of the express.js folder
+// To Summarize:
+// When you call express(), it creates an instance of the Application class from the application.js file.
+// The app object combines functionality from all the core files in Express:
+// Routing (router.js)
+// Request/Response handling (request.js, response.js)
+// Utility functions (utils.js)
+// View engine setup (view.js)
+// These files work together to provide a seamless web framework experience, where app serves as the entry point to interact with all of these functionalities.
+
+// What are the functionality of the set function in express.js 
+// The set() method in Express.js is used for setting various application-level settings, not just the view engine. It allows you to configure a variety of settings that modify how your Express app behaves. The set() method is very flexible and can be used to define any custom setting for your app, including the view engine.
+// common uses of the set() in express.js 
+// 1.Setting the view engine
+// 2.Setting the views directory
+// 3.setting the environment : express uses the set() to configure teh environment setting.This setting affects how your app behaves
+// such as wheather the error message are detailed or hidden 
+// 4.Setting custom settings :you can use set() to define custom settings or configuration values that can be accessed throught the app.These can be 
+// arbitary settings or flags you want to configure
+
+
+// why the path is define to to the view folder using set() method and what is it's relation with setting an view engine  like ejs mate 
+// Answer :
+// Why is the Views Directory Defined with the set() Method?
+// When you use a templating engine in Express (such as EJS, Pug, or Handlebars), the engine needs to know where to look for the view templates (i.e., the files that define the HTML structure with dynamic data).
+
+// By default, Express expects your view templates to be in a folder called views in your project directory. However, you can customize this folder's location by setting it using the app.set('views', ...) method.
+
+
+// what is the meaning of this line of code  :
+// app.use(express.urlencoded({extended: true}));
+// example of url encoded data :
+//https://example.com?name=John+Doe&email=john.doe%40example.com&message=Hello%2C+I+am+interested+in+your+services
+// the  line app.use(express.urlencoded({ extended: true })); is used to parse incoming request bodies that contain URL-encoded data (typically send by HTML forms)
+
+
+
+// Breakdown of the Code:
+// app.use(): This is a middleware function that tells Express to use the specified middleware for all incoming requests. Middleware functions have access to the request (req), response (res), and the next function in the application's request-response cycle.
+
+// express.urlencoded(): This is a built-in middleware function in Express that is used to parse URL-encoded data, which is the format used when submitting forms using the application/x-www-form-urlencoded content type (the default content type for forms).
+
+// { extended: true }: This option controls how the URL-encoded data is parsed:
+
+// extended: true: This allows for the use of the qs library to parse the data, which enables parsing of rich objects and arrays. It allows nested objects (e.g., { user: { name: "John" } }).
+// extended: false: This uses the querystring library for parsing, which only allows simple key-value pairs (without supporting nested objects).
+
+
+
+
+// what is the application of the app.use() method and what are middlewares
+// The app.use() method in Express.js is used to register middleware for your application. Middleware functions are functions that have access to the request, response, and next objects in the application's request-response cycle. Middleware can be used for a variety of purposes, such as modifying request and response objects, performing authentication, logging, error handling, parsing request bodies, etc.
+
+

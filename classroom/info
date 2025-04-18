@@ -1,0 +1,64 @@
+// express-session deprecated undefined resave option; provide resave option server.js:7:9
+// express-session deprecated undefined saveUninitialized option; provide saveUninitialized option server.js:7:9
+
+// because of the above  message we get from the terminal after runnimg the server.js file we use :
+// two 
+
+app.use(session({
+    secret: "mysupersecretstring",
+    resave: false,
+    saveUninitialized: true
+}));
+
+// what is session ?
+/* In the express-session middleware, the session function is used to configure session management in an express application.
+here's what each option inyour code means:
+//NOTE: session works is to store the  useful information from an single session so that we can use that information 
+//      in different pages.
+
+app.use(ssession({
+secret:"mysupersecretstring",
+resave:false;
+saveUninitialized:true
+}));
+
+
+1.Secret
+ Purpose: This is a string used to sign the sessionID cookie.It ensures that the session data is not tampered with by the client.
+ How it works: When an session is created, the sessionID isdigned using this secret, and the server verifies the signature when the session is accessed.
+ Best Practice: Do not hardcode secrets in the code .Instead , use environmentvariables(process.env.SESSION_SECRET).
+
+2.resave:
+ PURPOSE: It determines whether the session should be saved to the session store even if was'nt modified during the request
+ Options:
+  a) true:Forces teh session to be saved back to the session store , even if it was'nt modified.
+  b)false: The session is only saved if it was modified.
+
+ Recommended Value: false (to prevent unnecessary session storage updates).
+
+3.saveUniitialized:
+ Purpose:It controls whether an uniitialized session (a session that is new but not modified) should be saved in the session store.
+ Options:
+ true:Saves new session even if they are empty.
+ false:Does'nt save new session unless modified(reduce storage usage).
+ Recommended Value:false inproduction, unless you need to track users before they log in.
+*/
+
+/* 
+client is sending request to the server then server sends request to the client 
+and as per the clients requirements he send the request to the server 
+the number of request which was send by the server or the response which was send by the server
+to the client is not an session. This whole process which occured will be called as one session
+*/
+
+/********* when we post the project for production(imp point for session) **************/
+
+// Warning The default server-side session storage, MemoryStore, is purposely not designed for a production environment. It will leak memory under most conditions, does not scale past a single process, and is meant for debugging and developing.
+
+// For a list of stores, see compatible session stores.
+
+
+/********** Connect-Flash ***************/
+// Ths flash is a special area of the session used for storing message .Message are written to the flash 
+// cleared after being displayed  to the user
+// to use connect-flash using session is compulsary

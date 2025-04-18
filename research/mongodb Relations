@@ -1,0 +1,63 @@
+In SQL there are three types of relationships between 
+tables 
+1.one-one
+2.one to many
+3.many to many
+
+in the above relations one-one and many to many are easier to 
+identify and understand but for one-many we have to think a little
+
+So in mongo relationship we will learn the typs of One to Many relationship
+ 
+ One to many is divided into three types 
+ 1.Approach 1(one to few):
+  In practical scenario when we place order from zomato or swiggy there
+  there we have stored multiple addresses and generally we store may be 4 to 5 addresses
+  not more than that. This type of case can be put into the category of one to few 
+  genreally one case can be considered one to few when the data stored is less than 
+  1000 or 10^5. 
+
+  "To store one to few data in mongodb we store the child document inside the parent "
+  what does the above statement means that suppose there is an user which has two or three addresses under his name 
+  then what we can do is that we can store the user details and his/her address details inside one collection object
+
+2.Approach 2(One to many ):
+  store a refrence to the child document inside the parent 
+  eg:
+  {
+    _id:ObjectId("2h2162hh2r2e3t2u"),
+    name:'Rahul Kumar',
+    oreders:[
+        ObjectId("j32323h323hh3h32i2"),
+        ObjectId("j322i2g23d3ss2sd3f"),
+    ],
+    __v: 0
+  }
+
+3.Approach 3(One to sqillions)
+  here one data point is connected to millions or squillion of 
+  point real life example is instagram one user has various types of
+  post which means one user is conneted to various post 
+
+  Now how we are going to store the data to the database for one-squillions:
+  "We will Store a refrence to the parent document inside child "
+
+  which means that instead of storing the object id of the post which are huge in number 
+  we will store the object id of the user in side the post. This is done because 
+  one user can multiple posts so many object ID of posts are needed to be stored 
+  with the userbut post with post it has only one user so one it is easier to identify the 
+  user with the help of post .
+
+
+  ****Handling Deletion
+  suppose there is an user which has multiple post connected to it , if the user account gets deleted with  then all the post related to the account should get deleted this is called as Handling deletion.
+
+  for this we use mongoose middlewares
+  we can use two middlewares :
+  Pre-run before the queryis executed
+  Post-run after the query is executed
+
+  Pre - when we wnat an function to get executed before the execution of an query we use pre middleware
+
+  post-when we want an function to get executed after the execution of an query then we use post middleware 
+  

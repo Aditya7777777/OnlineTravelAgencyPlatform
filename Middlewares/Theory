@@ -1,0 +1,53 @@
+middlewares are basically a function that performs specific operation 
+after the request and before response 
+
+<!--******************************************** -->
+characteristic of middlewares:
+1.they can access the req,res variables
+
+2.middleware can form chain of functions means that 
+there can be chaining of middleware
+
+3.middleware itself can stop the chaining once the response is send before the last middleware function 
+
+4.if suppose middleware send the response before the response to be sent  then the  response which was expected to be send by API or  our route will not get executed .
+
+
+
+<!-- ************************************************* -->
+functions of middleware:
+1.Execute any code 
+2.make changes to the request and the response
+3.middleware end the request response cycle
+4.Call the next middleware function in the stack
+
+
+
+<!-- *************************** -->
+app.use is used to mount the middleware function to a specified path if the path is not defined then the middleware function will get applied to whole request response cycle
+
+
+
+<!-- **************** -->
+middleware has two functions 
+provide response or call the next middleware 
+
+
+<!-- *************************** -->
+middleware will function even if the path specified is wrong middleware is sure to execute 
+middleware is to be defined at the start of the code otherwise it will not get executed
+
+one of the example of an middleware function is error hadling middleware functions
+
+<!-- ******************************************* -->
+In the error handling middleware next() will call the next middleware which does'nt throw any error by default.So,if we ant to trigger express's default handler then we have to pass err in next method 
+next(err)
+
+
+which gives the indication that the present middleware has handled the error now which middleware will handle the error otherwise it will be handled by express default handler(err) 
+
+<!-- ***********Custom error class ********* -->
+
+Error handling middleware are written at last of the code  
+
+

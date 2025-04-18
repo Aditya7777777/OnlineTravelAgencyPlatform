@@ -1,0 +1,122 @@
+# Authentication and Authorization
+
+## Authentication
+Authentication is the process of verifying **who someone is**.
+
+## Authorization
+Authorization is the process of verifying **what specific applications, files, and data a user has access to**.
+
+## Why Do We Need Authentication and Authorization in a Website?
+When developing a website, we reach a stage where we can:
+- Add a listing
+- Delete a listing
+- Edit a listing
+
+However, if we **deploy** the website without authentication and authorization, **anyone** can:
+- Delete listings
+- Edit listings
+- Create listings
+
+This is **not secure**. To prevent unauthorized actions, we need to:
+- **Authenticate** users to verify their identity.
+- **Authorize** users based on their roles.
+
+For example:
+- If the user is an **owner**, they can **edit, create, or delete** listings.
+- If the user is a **customer**, they can only **book hotels or view listings**.
+
+Thus, authentication and authorization **ensure security** in the system.
+
+---
+
+# Storing Passwords
+### **We never store passwords in plain text. Instead, we store their hashed form.**
+
+| Password    | How it is stored |
+|------------|-----------------|
+| `helloworld` | `Hashing function → $2y$10$XElWz9WPwSLK3y0jUP6KhOHepv.KF4zj6z4J3XXyYRye.VXnPsMA2` |
+
+### **Why Use Hashing?**
+> If two users enter the same password, the hashing function will generate the same hash.
+
+**Solution: Use Salt!**
+
+### **What is Salt?**
+A **random value** added **before hashing** ensures different outputs for identical passwords.
+
+### **Example (Without Salt):**
+```
+User1 Password:  password123  →  Hash:  ef92b778bafe...
+User2 Password:  password123  →  Hash:  ef92b778bafe...
+```
+
+### **Example (With Salt):**
+```
+User1 Password:  password123 + salt1  →  Hash:  6a8e4b0f...
+User2 Password:  password123 + salt2  →  Hash:  b3c2d1e4...
+```
+
+---
+
+# Important Characteristics of Hashing Functions
+1. For every input, there is a **fixed output**.
+2. They are **one-way functions** (we cannot derive the original input from the hash).
+3. For a different input, there is a **different output**, but of the **same length**.
+4. A **small change** in input should cause a **large change** in output.
+
+### **Examples of Hashing Functions:**
+- **SHA-256**
+- **MD5**
+- **CRC**
+- **bcrypt**
+
+---
+
+# What is Salting?
+**Password salting** is a technique to protect passwords stored in databases by adding a **random string** before hashing.
+
+
+ How to predict the password from an hashed form
+
+ whenever there is an password created it's following hash code also get's generated . Here if you create an password which is most common amongst the users then , hackers can easily able to identify common passwords by looking reverse loop table and a  cybersecurity professional's one of the work is to create an reverseloop table
+
+ So to prevent any malacious activities we use salting
+
+ Note:
+ To implement salting technique there is lot of research that is made we can generate an hashing function randomly by our own to create an hashing function proper research papers are created and then tested and after various extensive research they are used in the industries 
+
+ In node.js there are various popular tool that is used for authentication these tools already exists which helps us to sign up and login 
+
+ these are such tools, if we use them then automatically salting is applied and the password get's stored in  hashed format in the database 
+
+ one of those tools is passport
+
+ Passport:
+ it is an library which helps us in authentication 
+ specifically if we want to authenticate our user passport helps us lot in that case.
+
+so if someone asks what is passport we can say :
+Passport is Express-compatible authentication middleware for Node.js.
+
+to use passport install these three packages:
+
+npm i passport
+
+npm i passport-local as per the website utility 
+
+npm i passport-local-mongoose when we use mongo-db as our database
+
+
+passport.session() -> A web application needs the ability to identify users as they browse frompage to page . This series of requests and responses , each associated with the same user, is known as session 
+
+The algorithm used by passport for hashing :
+it typically relies on hashing algorithms such as bcrypt, argon2, or PBKDF2 for securely hashing passwords.
+
+
+
+
+
+
+
+
+
