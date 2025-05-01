@@ -148,3 +148,9 @@
 .btns a{
     height: 2.49rem;
 }
+
+/*MAps*/
+#map {
+    height: 400px;
+    width: 100vh;
+}
