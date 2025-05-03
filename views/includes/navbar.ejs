@@ -42,7 +42,7 @@
         
         <div class="navbar-nav ms-auto"> <!--ms auto is used to shift all the anchor tags to right -->          
           <a class="nav-link" href="/listings/new">Airbnb your home</a>
-          <% if(!currUser) {%>
+          <% if(typeof currUser == "undefined" || !currUser) {%>
           <a class="nav-link "  href="/signup"><b>Sign Up</b></a>
           <a class="nav-link" href="/login"><b>Log in</b></a>
           <% }else if(currUser) { %>
