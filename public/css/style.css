@@ -153,4 +153,11 @@
 #map {
     height: 400px;
     width: 100vh;
+    margin-left: 0rem;
+}
+
+@media (max-width: 1200px) {
+    #map{
+        width: 30rem
+    }
 }

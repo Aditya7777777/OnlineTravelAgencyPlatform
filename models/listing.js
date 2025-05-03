@@ -36,8 +36,7 @@ const listingSchema  = new Schema({
           type: [Number],
           required: true
         }
-      }
-    
+      },
 });
 
 listingSchema.post("findOneAndDelete",async(listing) =>{
