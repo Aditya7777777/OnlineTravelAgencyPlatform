@@ -55,7 +55,7 @@ app.use(express.static( path.join(__dirname,"/public")));// method to use the st
 const store = MongoStore.create({
     mongoUrl: dbUrl,
     crypto: {
-        secret: process.env.SECRET
+        secret: process.env.SECRET,
     },
     touchAfter: 24 * 3600,
 });
@@ -80,9 +80,7 @@ const sessionOption = {
 
 
 
-app.get("/",(req,res)=>{
-    res.send("Hi,I am root");
-});
+
 // If we want to authenticate the user we can also do it from the scratch 
 // but with the help of passport we can authenticate the user  within 7 lines of code 
 app.use(session(sessionOption));
