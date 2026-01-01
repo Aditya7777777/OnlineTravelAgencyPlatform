@@ -44,10 +44,6 @@ This platform focuses on **exploration and information sharing** rather than boo
 
 ### Database
 - MongoDB (NoSQL database)
-
-### Full Stack
-- MERN Stack (MongoDB, Express.js, Node.js)
-
 ---
 
 ## Features
