@@ -123,7 +123,7 @@ This platform focuses on **exploration and information sharing** rather than boo
 ### Steps
 1. Clone the repository
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/Aditya7777777/OnlineTravelAgencyPlatform.git
 
 
 project-root/
